@@ -1,0 +1,47 @@
+<p-table
+  [value]="requestsForTable"
+  dataKey="nameProject"
+  [tableStyle]="{ 'min-width': '60rem' }"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="nameProject">
+        Request <p-sortIcon field="nameProject" />
+      </th>
+      <th pSortableColumn="person">Person <p-sortIcon field="person" /></th>
+      <th pSortableColumn="area">Area <p-sortIcon field="area" /></th>
+      <th pSortableColumn="state">State <p-sortIcon field="state" /></th>
+      <th pSortableColumn="request">
+        Request Date <p-sortIcon field="request" />
+      </th>
+      <th style="width: 5rem"></th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-request let-expanded="expanded">
+    <tr>
+      <td>{{ request.nameProject }}</td>
+      <td>
+        {{ request.person }}
+      </td>
+      <td>{{ request.area }}</td>
+      <td>
+        <p-tag
+          [value]="request.state"
+          [severity]="getSeverity(request.state)"
+        ></p-tag>
+      </td>
+      <td>{{ request.requestDate }}</td>
+      <td>
+        <button
+          type="button"
+          pButton
+          pRipple
+          [pRowToggler]="request"
+          class="p-button-text p-button-rounded p-button-plain"
+          [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
