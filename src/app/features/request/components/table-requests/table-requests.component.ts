@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
-
+import { CardModule } from 'primeng/card';
 // Services
 import { RequestService } from '../../services/request.service';
 
@@ -16,7 +16,7 @@ import Request from '../../models/request.model';
 @Component({
   selector: 'table-requests',
   standalone: true,
-  imports: [CommonModule, TableModule, TagModule, ButtonModule],
+  imports: [CommonModule, CardModule, TableModule, TagModule, ButtonModule],
   providers: [RequestService],
   templateUrl: './table-requests.component.html',
   styleUrls: ['./table-requests.component.css'],
