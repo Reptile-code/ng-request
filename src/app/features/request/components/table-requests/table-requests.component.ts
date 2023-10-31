@@ -1,4 +1,4 @@
-import { firstValueFrom, lastValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -7,16 +7,27 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+
 // Services
 import { RequestService } from '../../services/request.service';
+
+// Components
+import { TimelineRequestsComponent } from '../timeline-requests/timeline-requests.component';
 
 //Models
 import Request from '../../models/request.model';
 
 @Component({
-  selector: 'table-requests',
+  selector: 'requests-table',
   standalone: true,
-  imports: [CommonModule, CardModule, TableModule, TagModule, ButtonModule],
+  imports: [
+    CommonModule,
+    CardModule,
+    TableModule,
+    TagModule,
+    ButtonModule,
+    TimelineRequestsComponent,
+  ],
   providers: [RequestService],
   templateUrl: './table-requests.component.html',
   styleUrls: ['./table-requests.component.css'],
