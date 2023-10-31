@@ -1,0 +1,30 @@
+<section class="sidebar-menu">
+  <header class="sidebar-header">
+    <div class="header-button">
+      <p-button
+        raised="true"
+        size="small"
+        icon="pi pi-plus"
+        label="New Project Request"
+        [style]="{ width: '100%' }"
+      >
+      </p-button>
+    </div>
+  </header>
+  <nav class="main-menu">
+    <span class="menu-header">Menu</span>
+    <ul>
+      <li *ngFor="let item of sidebarItems" class="has-subnav">
+        <a
+          class="sidebar-item"
+          [routerLink]="item.route"
+          [routerLinkActive]="'is-active'"
+        >
+          <i [class]="item.icon"></i>
+          <span class="nav-text">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <footer class="sidebar-footer"></footer>
+</section>

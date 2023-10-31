@@ -1,0 +1,228 @@
+.sidebar-menu {
+  width: 250px;
+  height: 100vh;
+  background: var(--bg-color-secondary);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .sidebar-header {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-button {
+      width: var(--w-sidebar-element);
+      margin: 0 auto;
+    }
+  }
+
+  .sidebar-footer {
+    width: 100%;
+    min-height: 180px;
+    border-top: 1px solid var(--border-color);
+  }
+}
+
+.main-menu .pi {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  font-size: 24px;
+}
+.main-menu {
+  /* background: var(--bg-color-secondary); */
+  padding: 10px 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .menu-header {
+    width: var(--w-sidebar-element);
+    margin: 0 auto;
+    font-size: var(--font-size-md);
+    color: var(--font-color-secondary);
+  }
+
+  &ul {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.main-menu li {
+  width: var(--w-sidebar-element);
+  margin: 0 auto;
+  list-style: none;
+}
+
+.main-menu li > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  height: var(--h-sidebar-element);
+  margin: 10px 0;
+  border-radius: var(--border-radius-sm);
+  color: var(--font-color-dark);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.main-menu .nav-icon {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+.main-menu .nav-text {
+  display: flex;
+  align-items: start;
+  width: 190px;
+}
+
+.main-menu > ul.logout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.no-touch .scrollable.hover {
+  overflow-y: hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+  overflow-y: auto;
+  overflow: visible;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+}
+.main-menu li:hover > a,
+nav.main-menu li.active > a,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+.dashboard-page nav.dashboard-menu ul li.active a,
+a.is-active {
+  color: var(--font-color-dark);
+  background-color: var(--bg-color-active);
+}
+/*
+.area {
+  float: left;
+  background: var(--bg-color-secondary);
+  width: 100%;
+  height: 100%;
+} */
+
+/* Generate a media query for responsive design */
+
+@media (max-width: 768px) {
+  .pi {
+    position: relative;
+    display: table-cell;
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 24px;
+  }
+
+  .main-menu:hover,
+  nav.main-menu.expanded {
+    width: 250px;
+    overflow: visible;
+  }
+
+  .main-menu {
+    background: var(--bg-color-secondary);
+    height: 100vh;
+    width: 60px;
+    overflow: hidden;
+    -webkit-transition: width 0.05s linear;
+    transition: width 0.05s linear;
+    transform: translateZ(0) scale(1, 1);
+  }
+
+  /* .main-menu > ul {
+  margin: 7px 0;
+} */
+
+  .main-menu li {
+    position: relative;
+    display: block;
+    width: 250px;
+  }
+
+  .main-menu li > a {
+    position: relative;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: var(--font-color-dark);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    -webkit-transform: translateZ(0) scale(1, 1);
+    -webkit-transition: all 0.1s linear;
+    transform: translateZ(0) scale(1, 1);
+    transition: all 0.1s linear;
+  }
+
+  .main-menu .nav-icon {
+    position: relative;
+    display: table-cell;
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+  }
+
+  .main-menu .nav-text {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    width: 190px;
+  }
+}
