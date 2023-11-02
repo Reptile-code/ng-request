@@ -1,0 +1,22 @@
+<p-dialog
+  [(visible)]="isVisible"
+  [modal]="true"
+  [style]="{ width: '95vw', background: 'var(--bg-color-primary) !important' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onCloseModal()"
+>
+  <ng-template pTemplate="header">
+    <div class="modal-title">
+      <h2>Project Request</h2>
+    </div>
+  </ng-template>
+  <p-divider />
+  <ng-template pTemplate="content">
+    <div class="modal-content">
+      <app-form-request />
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer"> </ng-template>
+</p-dialog>

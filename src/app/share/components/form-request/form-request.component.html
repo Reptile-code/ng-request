@@ -1,0 +1,143 @@
+<div class="request-container">
+  <form class="form" [formGroup]="requestFormGroup">
+    <div class="form-general">
+      <div class="left">
+        <label for="">Project Name</label>
+        <input type="text" pInputText formControlName="projectName" />
+      </div>
+      <div class="right">
+        <label for="">Request Date</label>
+        <input
+          type="text"
+          pInputText
+          [disabled]="true"
+          [placeholder]="requestDate"
+        />
+      </div>
+    </div>
+
+    <p-divider />
+    <ng-container *ngFor="let section of FORM_SECTIONS">
+      <div class="form-section">
+        <div class="section-title">
+          <h2 class="title">{{ section.sectionName }}</h2>
+        </div>
+
+        <ng-container *ngIf="!section.isTable">
+          <div class="inputs" *ngFor="let input of section.inputs">
+            <div class="section-input" [ngSwitch]="input.type">
+              <ng-container *ngSwitchCase="'textarea'">
+                <ng-container
+                  *ngTemplateOutlet="textareaInput; context: { input: input }"
+                ></ng-container>
+              </ng-container>
+              <ng-container *ngSwitchCase="'multipleInputs'">
+                <ng-container
+                  *ngTemplateOutlet="multipleInputs; context: { input: input }"
+                ></ng-container>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="section.isTable">
+          <ng-container
+            *ngTemplateOutlet="tableInputs; context: { section: section }"
+          ></ng-container>
+        </ng-container>
+        <p-divider />
+      </div>
+    </ng-container>
+    <div class="form-buttons">
+      <p-button label="Cancel" styleClass="p-button-danger"></p-button>
+      <p-button label="Save" styleClass="p-button-success"></p-button>
+    </div>
+  </form>
+
+  <aside class="aside">
+    <a>Project Name</a>
+    <a>Project Information</a>
+    <a>Project Members</a>
+    <a>Current Process</a>
+  </aside>
+</div>
+
+<ng-template #textareaInput let-input="input">
+  <label class="input-text" for="text">{{ input.label }}</label>
+  <textarea
+    class="input-element {{ input.type }}"
+    rows="5"
+    cols="30"
+    pInputTextarea
+    [formControlName]="input.name"
+    [placeholder]="input.placeholder"
+    [autoResize]="true"
+  ></textarea>
+</ng-template>
+
+<ng-template #multipleInputs let-input="input">
+  <label class="input-text" for="text">{{ input.label }}</label>
+  <div class="input-generator">
+    <div
+      class="p-inputgroup"
+      *ngFor="let objectiveControl of objectiveFormArray.controls; index as i"
+    >
+      <span class="p-inputgroup-addon">{{ i + 1 }}</span>
+      <input
+        type="text"
+        pInputText
+        [placeholder]="input.placeholder"
+        [formControl]="$any(objectiveControl)"
+      />
+      <p-button
+        icon="pi pi-times"
+        styleClass="p-button-danger"
+        (onClick)="removeObjective(i)"
+      />
+    </div>
+    <div class="generator-button">
+      <p-button
+        label="Add Objective"
+        (onClick)="addObjective()"
+        icon="pi pi-plus"
+      />
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tableInputs let-section="section">
+  <div class="headers">
+    <span class="header" *ngFor="let header of section.inputHeaders">{{
+      header.header
+    }}</span>
+  </div>
+  <div class="inputs">
+    <div
+      class="input"
+      *ngFor="let input of section.inputs"
+      [ngSwitch]="input.type"
+    >
+      <ng-container *ngSwitchCase="'dropdown'">
+        <ng-container
+          *ngTemplateOutlet="dropdownInput; context: { input: input }"
+        ></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'input'">
+        <input
+          type="text"
+          pInputText
+          [placeholder]="input.placeholder"
+          [formControlName]="input.name"
+        />
+      </ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #dropdownInput let-input="input">
+  <p-dropdown
+    [options]="input.options"
+    [placeholder]="input.placeholder"
+    [formControlName]="input.name"
+  ></p-dropdown>
+</ng-template>

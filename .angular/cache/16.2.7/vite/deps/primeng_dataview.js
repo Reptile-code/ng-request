@@ -1,22 +1,24 @@
 import {
   Paginator,
   PaginatorModule
-} from "./chunk-W7IGDRY3.js";
-import "./chunk-QFDGHSL6.js";
+} from "./chunk-64QCLJWG.js";
+import "./chunk-XD5LKKZO.js";
 import "./chunk-JFU3Z4IM.js";
-import "./chunk-BGN3WWXG.js";
-import "./chunk-K4PCLLZO.js";
-import "./chunk-D7ZDM4UO.js";
-import "./chunk-Y57JNKG3.js";
-import "./chunk-OBMMJG6Q.js";
+import "./chunk-3I7EEYTK.js";
 import {
   SpinnerIcon
-} from "./chunk-6KAAALNF.js";
-import "./chunk-NTW4LXS3.js";
-import "./chunk-HJHFAMDY.js";
+} from "./chunk-Y6GHBLGK.js";
+import "./chunk-Y57JNKG3.js";
+import "./chunk-4QTYKRYE.js";
+import "./chunk-LLRXHOVQ.js";
+import "./chunk-MTXVLY7I.js";
+import "./chunk-W4GQVWQH.js";
+import "./chunk-PCISQTO5.js";
+import "./chunk-OC22UFRG.js";
 import {
   BaseIcon
-} from "./chunk-FOOLY6Q7.js";
+} from "./chunk-2ALXQHTC.js";
+import "./chunk-QTPZL35D.js";
 import {
   FilterService,
   Footer,
@@ -27,7 +29,6 @@ import {
   SharedModule,
   TranslationKeys
 } from "./chunk-FSVIF75D.js";
-import "./chunk-PCISQTO5.js";
 import {
   CommonModule,
   NgClass,

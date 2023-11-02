@@ -12,6 +12,10 @@
   --font-size-md: 16px;
   --font-size-lg: 22px;
   --font-title-xl: 26px;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-semi-bold: 500;
+  --font-weight-bold: 600;
   --border-radius-circle: 50%;
   --border-radius-sm: 5px;
   --border-radius: 10px;

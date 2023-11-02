@@ -1,10 +1,18 @@
 import {
+  ChevronRightIcon
+} from "./chunk-BZLC2QWV.js";
+import {
   Tooltip,
   TooltipModule
-} from "./chunk-K4PCLLZO.js";
+} from "./chunk-OC22UFRG.js";
 import {
-  ChevronRightIcon
-} from "./chunk-TE573O6L.js";
+  BaseIcon
+} from "./chunk-2ALXQHTC.js";
+import "./chunk-QTPZL35D.js";
+import {
+  PrimeTemplate,
+  SharedModule
+} from "./chunk-FSVIF75D.js";
 import {
   RouterLink,
   RouterLinkActive,
@@ -12,13 +20,6 @@ import {
 } from "./chunk-GY2GJSDX.js";
 import "./chunk-O33IQ5JN.js";
 import "./chunk-5BVE6MKB.js";
-import {
-  BaseIcon
-} from "./chunk-FOOLY6Q7.js";
-import {
-  PrimeTemplate,
-  SharedModule
-} from "./chunk-FSVIF75D.js";
 import {
   CommonModule,
   NgClass,

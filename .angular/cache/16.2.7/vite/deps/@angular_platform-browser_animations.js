@@ -1,9 +1,4 @@
 import {
-  BrowserModule,
-  DomRendererFactory2
-} from "./chunk-O33IQ5JN.js";
-import "./chunk-5BVE6MKB.js";
-import {
   AUTO_STYLE,
   AnimationBuilder,
   AnimationFactory,
@@ -13,6 +8,11 @@ import {
   style,
   ɵPRE_STYLE
 } from "./chunk-PCISQTO5.js";
+import {
+  BrowserModule,
+  DomRendererFactory2
+} from "./chunk-O33IQ5JN.js";
+import "./chunk-5BVE6MKB.js";
 import {
   DOCUMENT
 } from "./chunk-YSU6UL2H.js";
