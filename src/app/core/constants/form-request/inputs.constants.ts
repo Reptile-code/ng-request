@@ -79,7 +79,7 @@ export default class FormInputsConstant {
       ],
       inputs: [
         {
-          name: 'stakeHolders',
+          name: 'identificator',
           placeholder: 'Select Identificator',
           type: 'dropdown',
           options: ['Stakeholder principal'],
@@ -93,11 +93,13 @@ export default class FormInputsConstant {
           name: 'role',
           placeholder: 'Select a Role',
           type: 'dropdown',
+          options: ['Stakeholder principal'],
         },
         {
           name: 'area',
           placeholder: 'Select an Area',
           type: 'dropdown',
+          options: ['Stakeholder principal'],
         },
       ],
     },

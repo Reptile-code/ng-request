@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 
-export const REQUEST_ROUTES: Routes = [
+export const BI_REPORTS_ROUTES: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./pages/requests/requests.component').then(
-        (m) => m.RequestsComponent
-      ),
+    // loadComponent: () =>
+    //   import('./pages/requests/requests.component').then(
+    //     (m) => m.RequestsComponent
+    //   ),
     // children: [
     //   {
     //     path: 'Request',

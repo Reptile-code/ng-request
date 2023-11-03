@@ -13,9 +13,9 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  items: MenuItem[] = [];
+  items: MenuItem[] | undefined;
 
-  home: MenuItem = {};
+  home: MenuItem | undefined;
 
   ngOnInit() {
     this.items = [

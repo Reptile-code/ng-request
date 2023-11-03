@@ -8,6 +8,9 @@ import {
   FormArray,
   ReactiveFormsModule,
   Validators,
+  ControlContainer,
+  FormGroupDirective,
+  FormBuilder,
 } from '@angular/forms';
 
 // PrimeNG
@@ -37,26 +40,41 @@ import FormInputsConstant from '../../../core/constants/form-request/inputs.cons
   styleUrls: ['./form-request.component.css'],
 })
 export class FormRequestComponent implements OnInit {
-  requestFormGroup!: FormGroup;
+  requestFormGroup: FormGroup;
   requestDate = '10/12/2023';
   objectives: string[] = ['', ''];
   FORM_SECTIONS = FormInputsConstant.FORM_INPUTS;
-  ngOnInit() {
-    this.requestFormGroup = new FormGroup({
-      projectName: new FormControl('', [Validators.required]),
-      baseline: new FormControl('', [Validators.required]),
-      objective: new FormArray([], [Validators.required]),
-      problemStatement: new FormControl('', [Validators.required]),
-      scope: new FormControl('', [Validators.required]),
-      outOfScope: new FormControl('', [Validators.required]),
-      impact: new FormControl('', [Validators.required]),
-      stakeHolders: new FormArray([], [Validators.required]),
-      created: new FormControl('', [Validators.required]),
-      updated: new FormControl('', [Validators.required]),
+
+  constructor(private _fB: FormBuilder) {
+    this.requestFormGroup = this._fB.group({
+      projectName: ['', Validators.required],
+      baseline: ['', Validators.required],
+      objective: this._fB.array(
+        [
+          this._fB.control('', Validators.required),
+          this._fB.control('', Validators.required),
+        ],
+        Validators.required
+      ),
+      problemStatement: ['', Validators.required],
+      scope: ['', Validators.required],
+      outOfScope: ['', Validators.required],
+      impact: ['', Validators.required],
+      stakeHolders: this._fB.array(
+        [
+          this._fB.group({
+            identificator: this._fB.control('', Validators.required),
+            name: this._fB.control('', Validators.required),
+            role: this._fB.control('', Validators.required),
+            area: this._fB.control('', Validators.required),
+          }),
+        ],
+        Validators.required
+      ),
     });
-    this.addObjective();
-    this.addObjective();
   }
+
+  ngOnInit() {}
 
   get objectiveFormArray() {
     return this.requestFormGroup.get('objective') as FormArray;
@@ -90,5 +108,9 @@ export class FormRequestComponent implements OnInit {
 
   removeObjective(index: number) {
     this.objectiveFormArray.removeAt(index);
+  }
+
+  onSubmit() {
+    console.log(this.requestFormGroup.value);
   }
 }

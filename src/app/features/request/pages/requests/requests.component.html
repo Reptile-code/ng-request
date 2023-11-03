@@ -1,0 +1,42 @@
+<section class="request-main">
+  <p-card [style]="{ width: '100%' }">
+    <ng-template pTemplate="header">
+      <div class="header-elements">
+        <div class="header-title">
+          <!-- <h3>{{'REQUEST_DETAILS.TITLE' | translate}}</h3> -->
+          <h2>{{ headerTitle }}</h2>
+        </div>
+        <div class="header-options">
+          <p-dropdown
+            [options]="typeOfRequest"
+            [(ngModel)]="selectedRequest"
+            placeholder="Select a Request"
+            optionLabel="name"
+            (onChange)="filterData($event)"
+          >
+          </p-dropdown>
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText [(ngModel)]="inputSearcher" />
+          </span>
+        </div>
+      </div>
+    </ng-template>
+
+    <!-- <section class="request-content"> -->
+    <ng-template pTemplate="content">
+      <requests-table />
+    </ng-template>
+    <!-- </section> -->
+
+    <ng-template pTemplate="footer">
+      <!-- <p-button label="Save" icon="pi pi-check"></p-button>
+      <p-button
+        label="Cancel"
+        icon="pi pi-times"
+        styleClass="p-button-secondary"
+        [style]="{ 'margin-left': '.5em' }"
+      ></p-button> -->
+    </ng-template>
+  </p-card>
+</section>

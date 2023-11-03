@@ -1,0 +1,23 @@
+.request-main {
+  width: 100%;
+  height: 100%;
+  /* border-radius: var(--border-radius); */
+  /* background-color: red; */
+
+  .header-elements {
+    width: 100%;
+    padding: var(--padding);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-options {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--gap-md);
+    }
+  }
+}
