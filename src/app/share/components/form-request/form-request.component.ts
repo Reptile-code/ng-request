@@ -1,5 +1,5 @@
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -8,8 +8,6 @@ import {
   FormArray,
   ReactiveFormsModule,
   Validators,
-  ControlContainer,
-  FormGroupDirective,
   FormBuilder,
 } from '@angular/forms';
 
@@ -22,6 +20,7 @@ import { DropdownModule } from 'primeng/dropdown';
 
 // Constants
 import FormInputsConstant from '../../../core/constants/form-request/inputs.constants';
+import RequestModel from 'src/app/core/models/request.model';
 @Component({
   selector: 'app-form-request',
   standalone: true,
@@ -41,13 +40,41 @@ import FormInputsConstant from '../../../core/constants/form-request/inputs.cons
 })
 export class FormRequestComponent implements OnInit {
   requestFormGroup: FormGroup;
-  requestDate = '10/12/2023';
   objectives: string[] = ['', ''];
   FORM_SECTIONS = FormInputsConstant.FORM_INPUTS;
+  isModeRevision: boolean = false;
+  @Input() currentRequest: RequestModel = {
+    projectName: 'BMS new Project',
+    requestDate: '23/23/23',
+    baseline: 'i am testing the new implementation',
+    objective: ['Build a Chiller plant with the best practices'],
+    problemStatement: 'no hay',
+    scope: 'si',
+    outOfScope: 'fd',
+    impact: 'dfa',
+    stakeHolders: [
+      {
+        identificator: 'Stakeholder principal',
+        name: 'ddsfgdf',
+        role: 'Stakeholder principal',
+        area: 'Stakeholder principal',
+      },
+      {
+        identificator: 'Stakeholder principal',
+        name: 'adsf',
+        role: 'Stakeholder principal',
+        area: 'Stakeholder principal',
+      },
+    ],
+  };
 
   constructor(private _fB: FormBuilder) {
     this.requestFormGroup = this._fB.group({
       projectName: ['', Validators.required],
+      requestDate: [
+        { value: new Date().toLocaleString(), disabled: true },
+        Validators.required,
+      ],
       baseline: ['', Validators.required],
       objective: this._fB.array(
         [
@@ -74,7 +101,43 @@ export class FormRequestComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // Rellena currentRequest con valores vacios
+    if (this.currentRequest) {
+      this.isModeRevision = true;
+      this.requestFormGroup.patchValue({
+        projectName: this.currentRequest.projectName,
+        requestDate: this.currentRequest.requestDate,
+        baseline: this.currentRequest.baseline,
+        problemStatement: this.currentRequest.problemStatement,
+        scope: this.currentRequest.scope,
+        outOfScope: this.currentRequest.outOfScope,
+        impact: this.currentRequest.impact,
+      });
+
+      const objectiveArray = this.requestFormGroup.get(
+        'objective'
+      ) as FormArray;
+      const currentRequestObjectives = this.currentRequest?.objective || [];
+      this.clearFormArray(objectiveArray);
+      this.createFormControls(objectiveArray, currentRequestObjectives);
+
+      const stakeHoldersArray = this.requestFormGroup.get(
+        'stakeHolders'
+      ) as FormArray;
+      const currentRequestStakeHolders =
+        this.currentRequest?.stakeHolders || [];
+      this.clearFormArray(stakeHoldersArray);
+      this.createStakeHolderControls(
+        stakeHoldersArray,
+        currentRequestStakeHolders
+      );
+
+      this.requestFormGroup.disable();
+    } else {
+      this.isModeRevision = false;
+    }
+  }
 
   get objectiveFormArray() {
     return this.requestFormGroup.get('objective') as FormArray;
@@ -112,5 +175,35 @@ export class FormRequestComponent implements OnInit {
 
   onSubmit() {
     console.log(this.requestFormGroup.value);
+  }
+
+  // Helper method to clear existing controls in a FormArray
+  private clearFormArray(formArray: FormArray) {
+    while (formArray.length !== 0) {
+      formArray.removeAt(0);
+    }
+  }
+
+  // Helper method to create new form controls in a FormArray
+  private createFormControls(formArray: FormArray, values: any[]) {
+    values.forEach((value) => {
+      formArray.push(this._fB.control(value, Validators.required));
+    });
+  }
+
+  // Helper method to create stakeHolderGroup form controls in a FormArray
+  private createStakeHolderControls(formArray: FormArray, values: any[]) {
+    values.forEach((value) => {
+      const stakeHolderGroup = this._fB.group({
+        identificator: this._fB.control(
+          value?.identificator,
+          Validators.required
+        ),
+        name: this._fB.control(value?.name, Validators.required),
+        role: this._fB.control(value?.role, Validators.required),
+        area: this._fB.control(value?.area, Validators.required),
+      });
+      formArray.push(stakeHolderGroup);
+    });
   }
 }

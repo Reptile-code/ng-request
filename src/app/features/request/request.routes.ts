@@ -4,15 +4,13 @@ export const REQUEST_ROUTES: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./pages/requests/requests.component').then(
-        (m) => m.RequestsComponent
-      ),
-    // children: [
-    //   {
-    //     path: 'Request',
-    //     loadChildren: () =>
-    //       import('./request.component').then((m) => m.RequestComponent),
-    //   },
-    // ],
+      import('./request.component').then((m) => m.RequestComponent),
+    children: [
+      {
+        path: 'Request',
+        loadChildren: () =>
+          import('./request.component').then((m) => m.RequestComponent),
+      },
+    ],
   },
 ];
