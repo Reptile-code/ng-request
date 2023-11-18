@@ -1,0 +1,72 @@
+<p-dialog
+  [(visible)]="isVisible"
+  [modal]="true"
+  [style]="{
+    width: '85vw',
+    height: 'auto',
+    background: 'var(--bg-color-primary) !important',
+  }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onCloseModal()"
+>
+  <ng-template pTemplate="header">
+    <div class="modal-title">
+      <h2>Members Selector</h2>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <div class="modal-content">
+      <p-pickList
+        [source]="sourceMembers"
+        [target]="targetMembers"
+        sourceHeader="Available Members"
+        targetHeader="Selected Members"
+        [dragdrop]="true"
+        [responsive]="true"
+        [sourceStyle]="{ height: '30rem' }"
+        [targetStyle]="{ height: '30rem' }"
+        filterBy="name"
+        sourceFilterPlaceholder="Search by name"
+        targetFilterPlaceholder="Search by name"
+        breakpoint="1400px"
+      >
+        <ng-template let-product pTemplate="item">
+          <div class="member">
+            <img class="member-img" [src]="product.img" />
+            <div class="member-details">
+              <span class="name">{{ product.name }}</span>
+              <div class="position">
+                <i class="pi pi-tag"></i>
+                <span>{{ product.position }}</span>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-pickList>
+      <div class="buttons">
+        <button
+          pButton
+          pRipple
+          (click)="onCloseModal()"
+          label="Cancel"
+          class="p-button-danger"
+        ></button>
+        <button
+          pButton
+          pRipple
+          (click)="confirm()"
+          label="Submit"
+          class="p-button-success"
+        ></button>
+      </div>
+    </div>
+  </ng-template>
+</p-dialog>
+<p-confirmDialog
+  [style]="{ width: '25vw' }"
+  acceptButtonStyleClass="p-button-success"
+  rejectButtonStyleClass="p-button-danger"
+/>
+<p-toast />

@@ -4,7 +4,6 @@ import {
   Input,
   OnChanges,
   OnInit,
-  Output,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
@@ -29,6 +28,7 @@ import Request from '../../models/request.model';
 import { InputTextModule } from 'primeng/inputtext';
 import { RequestModalComponent } from '../request-modal/request-modal.component';
 import { ModalRequestComponent } from 'src/app/share/components/modal-request/modal-request.component';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'requests-table',
@@ -55,7 +55,10 @@ export class TableRequestsComponent implements OnInit, OnChanges {
   visible: boolean = false;
   @Input() searchTable: string = '';
   @ViewChild('dt') dt: Table | undefined;
-  constructor(private _requestService: RequestService) {}
+
+  constructor(
+    @Inject(RequestService) private _requestService: RequestService
+  ) {}
 
   async ngOnInit() {
     await this._requestService.fetchRequests();

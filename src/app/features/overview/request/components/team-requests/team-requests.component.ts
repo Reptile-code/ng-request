@@ -5,7 +5,9 @@ import { CommonModule } from '@angular/common';
   selector: 'app-team-requests',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './request-team.component.html',
-  styleUrls: ['./request-team.component.css'],
+  templateUrl: './team-requests.component.html',
+  styleUrls: ['./team-requests.component.css']
 })
-export class TeamRequestsComponent {}
+export class TeamRequestsComponent {
+
+}

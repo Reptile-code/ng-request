@@ -1,5 +1,5 @@
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -21,6 +21,7 @@ import { DropdownModule } from 'primeng/dropdown';
 // Constants
 import FormInputsConstant from '../../../core/constants/form-request/inputs.constants';
 import RequestModel from 'src/app/core/models/request.model';
+import { RequestPickListComponent } from '@feautes/request/components/request-picklist/request-picklist.component';
 @Component({
   selector: 'app-form-request',
   standalone: true,
@@ -34,6 +35,7 @@ import RequestModel from 'src/app/core/models/request.model';
     ButtonModule,
     DropdownModule,
     ScrollPanelModule,
+    RequestPickListComponent,
   ],
   templateUrl: './form-request.component.html',
   styleUrls: ['./form-request.component.css'],
@@ -43,6 +45,9 @@ export class FormRequestComponent implements OnInit {
   objectives: string[] = ['', ''];
   FORM_SECTIONS = FormInputsConstant.FORM_INPUTS;
   isModeRevision: boolean = false;
+
+  @Input() modalVisible: boolean = false;
+
   @Input() currentRequest: RequestModel = {
     projectName: 'BMS new Project',
     requestDate: '23/23/23',
@@ -205,5 +210,8 @@ export class FormRequestComponent implements OnInit {
       });
       formArray.push(stakeHolderGroup);
     });
+  }
+  onModalClosed(isOpen: boolean) {
+    this.modalVisible = isOpen;
   }
 }

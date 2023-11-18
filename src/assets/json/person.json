@@ -1,3 +1,38 @@
 [
-  {}
+  {
+    "id": 1,
+    "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fman_4086679&psig=AOvVaw1GxcGZ-WU1ZFLzX1Iw0ObI&ust=1700239336708000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCPDs7KD7yIIDFQAAAAAdAAAAABAD",
+    "name": "Francisco Suarez Bastidas",
+    "position": "Test Core Apps"
+  },
+  {
+    "id": 2,
+    "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fman_4086679&psig=AOvVaw1GxcGZ-WU1ZFLzX1Iw0ObI&ust=1700239336708000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCPDs7KD7yIIDFQAAAAAdAAAAABAD",
+    "name": "Nestor Zermeno",
+    "position": "Test Core Apps"
+  },
+  {
+    "id": 3,
+    "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fman_4086679&psig=AOvVaw1GxcGZ-WU1ZFLzX1Iw0ObI&ust=1700239336708000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCPDs7KD7yIIDFQAAAAAdAAAAABAD",
+    "name": "Richelle Ann Geronimo",
+    "position": "Test Core Apps"
+  },
+  {
+    "id": 4,
+    "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fman_4086679&psig=AOvVaw1GxcGZ-WU1ZFLzX1Iw0ObI&ust=1700239336708000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCPDs7KD7yIIDFQAAAAAdAAAAABAD",
+    "name": "Kevin Plata",
+    "position": "Test Core Apps"
+  },
+  {
+    "id": 5,
+    "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fman_4086679&psig=AOvVaw1GxcGZ-WU1ZFLzX1Iw0ObI&ust=1700239336708000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCPDs7KD7yIIDFQAAAAAdAAAAABAD",
+    "name": "Sebastian Rosas Martinez",
+    "position": "Test Core Apps"
+  },
+  {
+    "id": 6,
+    "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fman_4086679&psig=AOvVaw1GxcGZ-WU1ZFLzX1Iw0ObI&ust=1700239336708000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCPDs7KD7yIIDFQAAAAAdAAAAABAD",
+    "name": "Roberto Alvarado",
+    "position": "Test Core Apps"
+  }
 ]

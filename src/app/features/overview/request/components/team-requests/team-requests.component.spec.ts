@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TeamRequestsComponent } from './request-team.component';
+import { TeamRequestsComponent } from './team-requests.component';
 
 describe('TeamRequestsComponent', () => {
   let component: TeamRequestsComponent;
@@ -8,7 +8,7 @@ describe('TeamRequestsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TeamRequestsComponent],
+      imports: [TeamRequestsComponent]
     });
     fixture = TestBed.createComponent(TeamRequestsComponent);
     component = fixture.componentInstance;

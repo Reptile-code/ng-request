@@ -9,7 +9,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 
 // Components
-import { TableRequestsComponent } from './components/request-table/request-table.component';
+import { TableRequestsComponent } from './components/table-requests/table-requests.component';
 
 // Services
 import { RequestService } from './services/request.service';
@@ -36,7 +36,7 @@ import RequestType from './models/request-type.model';
 export class RequestComponent implements OnInit {
   typeOfRequest: RequestType[] = [];
   selectedRequest: RequestType | null = null;
-  inputSearcher: string = '';
+  inputSearcher: string | undefined = '';
   headerTitle: string = 'All Request';
 
   ngOnInit() {

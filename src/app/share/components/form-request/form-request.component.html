@@ -128,11 +128,16 @@
       <p-divider />
     </div>
     <div class="form-buttons">
-      <p-button label="Cancel" styleClass="p-button-danger"></p-button>
+      <p-button
+        label="Cancel"
+        (onClick)="onModalClosed(false)"
+        styleClass="p-button-danger"
+      ></p-button>
       <p-button
         label="Save"
         styleClass="p-button-success"
         type="submit"
+        (onClick)="onModalClosed(true)"
       ></p-button>
     </div>
   </form>
@@ -144,3 +149,7 @@
     <a>Current Process</a>
   </aside>
 </div>
+<request-picklist
+  [isVisible]="modalVisible"
+  (modalIsOpen)="onModalClosed($event)"
+/>

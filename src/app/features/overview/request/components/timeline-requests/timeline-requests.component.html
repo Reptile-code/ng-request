@@ -1,0 +1,22 @@
+<div class="main-section">
+  <h2 class="main-title">Timeline</h2>
+  <p-timeline [value]="events" styleClass="customized-timeline">
+    <ng-template pTemplate="marker" let-event>
+      <span
+        class="custom-marker shadow-2"
+        [ngClass]="event.status + ' custom-marker'"
+      >
+        <i [ngClass]="event.icon"></i>
+      </span>
+    </ng-template>
+    <ng-template pTemplate="content" let-event>
+      <p class="request-title">
+        {{ event.title }}
+      </p>
+      <p class="request-date">{{ event.date }}</p>
+      <p class="request-details">
+        El proyecto BMS ha sido aceptado por Nestor Zermeno
+      </p>
+    </ng-template>
+  </p-timeline>
+</div>
