@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { RequestHttpService } from './request-http.service';
-import { BehaviorSubject, firstValueFrom, lastValueFrom } from 'rxjs';
-import Request from '../models/request.model';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import Request from '../../models/request.model';
+import RequestDetails from '../../models/request-details.model';
 
 @Injectable({
   providedIn: 'root',

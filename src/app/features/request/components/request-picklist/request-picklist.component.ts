@@ -44,6 +44,9 @@ export class RequestPickListComponent implements OnInit {
 
   @Input() isVisible: boolean = false;
   @Output() modalIsOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() targetMembersEmitter: EventEmitter<Member[]> = new EventEmitter<
+    Member[]
+  >();
 
   constructor(
     private _teamsService: TeamsService,
@@ -66,7 +69,7 @@ export class RequestPickListComponent implements OnInit {
     this._confirmationService.confirm({
       message: '¿Estás seguro que deseas enviar la solicitud?',
       header: 'Confirmation',
-      icon: 'pi pi-exclamation-triangle',
+      icon: 'pi pi-exclamation-triangle ',
       accept: () => {
         this.sendRequest();
       },
@@ -100,11 +103,13 @@ export class RequestPickListComponent implements OnInit {
       });
     } else {
       console.log('Solicitud enviada');
+      console.log('Miembros seleccionados: ', this.targetMembers);
       this._messageService.add({
         severity: 'success',
         summary: 'Success',
         detail: 'Request sent successfully',
       });
+      this.targetMembersEmitter.emit(this.targetMembers);
       this.onCloseModal();
     }
   }

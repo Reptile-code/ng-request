@@ -11,7 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 // Components
 import { TableRequestsComponent } from '../../components/request-table/request-table.component';
 // Services
-import { RequestService } from '../../services/request.service';
+import { RequestService } from '../../services/request/request.service';
 
 // Models
 import RequestType from '../../models/request-type.model';

@@ -19,8 +19,8 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { DropdownModule } from 'primeng/dropdown';
 
 // Constants
-import FormInputsConstant from '../../../core/constants/form-request/inputs.constants';
-import RequestModel from 'src/app/core/models/request.model';
+import FormInputsConstant from '../../../core/constants/request/inputs.constants';
+import RequestModel from '@core/models/request.model';
 import { RequestPickListComponent } from '@feautes/request/components/request-picklist/request-picklist.component';
 @Component({
   selector: 'app-form-request',

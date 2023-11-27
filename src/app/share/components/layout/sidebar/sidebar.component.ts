@@ -31,24 +31,29 @@ export class SidebarComponent {
   constructor() {
     this.sidebarItems = [
       {
+        label: 'Home',
+        icon: 'pi pi-home',
+        route: '',
+      },
+      {
         label: 'Overview',
         icon: 'pi pi-th-large',
-        route: '/overview',
+        route: './overview',
       },
       {
         label: 'Request',
         icon: 'pi pi-folder',
-        route: '/request',
+        route: './request',
       },
       {
         label: 'Teams',
         icon: 'pi pi-users',
-        route: '/teams',
+        route: './teams',
       },
       {
         label: 'Notifications',
         icon: 'pi pi-bell',
-        route: '/notifications',
+        route: './notifications',
       },
     ];
   }

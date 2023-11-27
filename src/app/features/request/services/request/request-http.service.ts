@@ -6,7 +6,8 @@ import { Observable, map } from 'rxjs';
 
 // Models
 import Member from '@core/models/member.model';
-import Request from '../models/request.model';
+import Request from '../../models/request.model';
+import RequestDetails from '../../models/request-details.model';
 
 @Injectable({
   providedIn: 'root',

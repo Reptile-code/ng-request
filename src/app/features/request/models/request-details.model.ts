@@ -1,6 +1,7 @@
-import Stakeholder from '@feautes/request/models/stakeholder.model';
+import Stakeholder from './stakeholder.model';
 
-export default interface RequestModel {
+export default interface RequestDetails {
+  id: number;
   projectName: string;
   requestDate: string;
   baseline: string;

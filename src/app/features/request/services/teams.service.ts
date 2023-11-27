@@ -4,7 +4,7 @@ import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
 
 // Services
-import { RequestHttpService } from './request-http.service';
+import { RequestHttpService } from './request/request-http.service';
 
 // Models
 import Member from '@core/models/member.model';
