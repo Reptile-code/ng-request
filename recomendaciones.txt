@@ -1,0 +1,11 @@
+[5:27 PM] Nestor Alexander Zermeno
+Francisco Suárez
+Colocar primero el planteamiento del problema y después el caso del negocio/Objetivo
+El alcance es Facilities
+Modifica los tiempos del GIF de manera que se ajuste a tu explicación verbal y no tengas la necesidad de detenerlo
+Metodología:
+Mostrar un poco sobre la metodología que utilizaste para el desarrollo dle proyecto
+Qué tecnologías utilizaste para los desarrollos
+Proyectos paralelos
+Qué tecnologías utilizaste para esos desarrollos?
+En base a qué desarrollaste la plataforma de PRoject Request
